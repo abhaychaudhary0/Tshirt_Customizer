@@ -1,16 +1,11 @@
 import express from 'express';
-// import * as dotenv from 'dotenv';
-// import dotenv from 'dotenv';
 import { Configuration, OpenAIApi } from 'openai';
-
-// dotenv.config();
 
 const router = express.Router();
 const config = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY, // This will use the environment variable set in Netlify
 });
 const openai = new OpenAIApi(config);
-
 
 router.route('/').get((req,res) =>{
     res.status(200).json({message: "hello fom sonu"})
